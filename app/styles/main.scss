@@ -20,7 +20,6 @@
   margin-right: 14px;
 }
 
-
 .well-partner.ng-enter {
   animation: fadeInDown 1s;
 }
@@ -29,14 +28,13 @@
   animation: fadeOutRight 1s;
 }
 
-.add-alert.ng-show{
+.add-alert.ng-show {
   animation: fadeInLeft 1s;
 }
 
-.add-alert.ng-show{
+.add-alert.ng-show {
   animation: slideOutRight 1s;
 }
-
 
 .btn-rounded {
   border-radius: 50%;
@@ -69,15 +67,35 @@ h1 {
   font-family: 'Neuton', 'Arial', sans-serif;
 }
 
+.man-icon i {
+  color: #ce0698;
+}
+
 .man-icon i:first-child {
   position: absolute;
-  top: 26px;
+  top: 56px;
+  left: 30px;
 }
 
 .man-icon i:last-child {
   position: absolute;
   top: 78px;
-  left: 33px;
+  left: 10px;
+
+}
+
+.partner-badge {
+  position: absolute;
+  top: 35px;
+  color: #ce0698;
+}
+
+.well-partner p {
+  margin-top: 20px;
+}
+
+.footer-i {
+  color: red
 }
 
 /* Custom page header */

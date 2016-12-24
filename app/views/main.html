@@ -7,7 +7,7 @@
   </div>
 
   <div class="jumbotron" ng-show="partners.length > 0">
-    <h1>Finora hai preso {{totals.km | number:1 }}Km di cazzo</h1>
+    <h1>Hai preso {{totals.km | number:1 }}Km di cazzo</h1>
   </div>
 </div>
 
@@ -91,17 +91,23 @@
     <div class="col-sm-12">
       <div class="well well-partner" ng-repeat="partner in partners track by $index">
         <div class="row">
-          <div class="col-sm-6">
-            da: {{partner.from | amDateFormat:'MM.DD.YYYY'}}<br/>
-            a: {{partner.to | amDateFormat:'MM.DD.YYYY'}}<br/>
-            Cazzo: {{partner.length}}cm<br/>
-            Scopate settimanali: {{partner.fucks}}
+          <div class="col-sm-1 hidden-xs">
+            <i class="fa fa-id-badge fa-2x partner-badge"></i>
+          </div>
+          <div class="col-sm-5 col-xs-6">
+            <p>
+              <i class="fa fa-calendar"></i> da: <b>{{partner.from | amDateFormat:'MM.DD.YYYY'}}</b> a: <b>{{partner.to
+              |
+              amDateFormat:'MM.DD.YYYY'}}</b><br/>
+              <i class="fa fa-arrows-h"></i> <b>{{partner.length}}</b> cm di cazzo<br/>
+              <i class="fa fa-bar-chart"></i> <b>{{partner.fucks}}</b> Scopate settimanali
+            </p>
           </div>
           <div class="col-sm-6">
-            <h1>{{partner.taken | number : 1}} Km</h1>
+            <h1 class="pull-right">{{partner.taken | number : 1}} Km</h1>
           </div>
         </div>
-        <button ng-click="removePartner(partner)" class="btn btn-danger btn-rounded"><i class="fa fa-times fa-2x"></i>
+        <button ng-click="removePartner(partner)" class="btn btn-danger btn-rounded"><i class="fa fa-times fa-lg"></i>
         </button>
         <p></p>
       </div>
