@@ -1,0 +1,113 @@
+<div class="container">
+  <div class="jumbotron" ng-show="partners.length == 0">
+    <h1>quanti km di cazzo.com</h1>
+    <p class="lead">
+      Calcola quanti km di cazzo hai preso nella tua vita
+    </p>
+  </div>
+
+  <div class="jumbotron" ng-show="partners.length > 0">
+    <h1>Finora hai preso {{totals.km | number:1 }}Km di cazzo</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="well">
+    <form name="newPArtner">
+
+      <div class="row">
+        <div class="col-sm-1 man-icon hidden-xs">
+          <i class="fa fa-male fa-4x"></i>
+          <i class="fa fa-plus-circle fa-lg"></i>
+        </div>
+        <div class="col-sm-11">
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <label for="partnerLength">Cazzo?</label>
+                <div class="input-group">
+                  <input type="number" maxlength="2" name="newPartnerLength" class="form-control"
+                         ng-model="newPartner.length"
+                         id="partnerLength"
+                         placeholder="00.0" required>
+                  <span class="input-group-addon">cm</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-6">
+              <div class="form-group">
+                <label for="partnerLength">Scopate/sett.</label>
+                <div class="input-group">
+                  <input type="number" maxlength="2" name="newPartnerFucks" class="form-control"
+                         ng-model="newPartner.fucks"
+                         id="partnerFucks"
+                         placeholder="0" required>
+                  <span class="input-group-addon">scopate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="partnerFrom">Dal</label>
+                <input type="date" name="newPArtner.from" class="form-control" ng-model="newPartner.from"
+                       id="partnerFrom"
+                       required>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="partnerTo">Al</label>
+                <input type="date" name="newPartner.to" class="form-control" ng-model="newPartner.to" id="partnerTo"
+                       required>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-xs-12">
+          <button ng-click="addPartner()" class="btn btn-primary pull-right" ng-disabled="newPArtner.$invalid">
+            Aggiungi <i class="fa fa-plus-circle" aria-hidden="true"></i>
+          </button>
+          <small class="pull-right add-alert" ng-show="newPArtner.$invalid">Aggiungi tutti i dati del tuo partner (Vale
+            la figa e vale il culo, la bocca no)
+          </small>
+        </div>
+      </div>
+
+
+    </form>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="well well-partner" ng-repeat="partner in partners track by $index">
+        <div class="row">
+          <div class="col-sm-6">
+            da: {{partner.from | amDateFormat:'MM.DD.YYYY'}}<br/>
+            a: {{partner.to | amDateFormat:'MM.DD.YYYY'}}<br/>
+            Cazzo: {{partner.length}}cm<br/>
+            Scopate settimanali: {{partner.fucks}}
+          </div>
+          <div class="col-sm-6">
+            <h1>{{partner.taken | number : 1}} Km</h1>
+          </div>
+        </div>
+        <button ng-click="removePartner(partner)" class="btn btn-danger btn-rounded"><i class="fa fa-times fa-2x"></i>
+        </button>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
