@@ -1,20 +1,16 @@
 var express = require('express');
-var app = express();
 
-// set the port of our application
-// process.env.PORT lets the port be set by Heroku
-var port = process.env.PORT || 8080;
+var path = require('path');
 
-// make express look in the public directory for assets (css/js/img)
-app.use(express.static(__dirname + '/build'));
+app = express();
 
-// set the home page route
-app.get('/', function(req, res) {
-
-  // make sure index is in the right directory. In this case /app/index.html
-  res.render('index');
+app.configure(function(){
+  app.use(express.bodyParser());
+  app.use(express.static(path.join(__dirname, 'dist')));
 });
 
-app.listen(port, function() {
-  console.log('Our app is running on http://localhost:' + port);
-});
+var port = process.env.PORT || 5000;
+
+app.listen(port);
+
+console.log('server started '+port);
